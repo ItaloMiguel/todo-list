@@ -20,7 +20,16 @@ services:
     env_file:
       - ./.env.prod.db
 
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+    ports:
+      - 1337:80
+    depends_on:
+      - web
       
 volumes:
   postgres_data:
+  static_volume:
 
