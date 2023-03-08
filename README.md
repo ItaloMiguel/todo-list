@@ -2,7 +2,7 @@
 - Lembre de rodar esse comando para deixar o arquivo .sh executavel `chmod +x app/entrypoint.prod.sh`
 
 # Ferramentas utilizada
-- Arch Linux
+- Sistema operacional: Arch Linux
 - Dockerfile
 - Docker-compose
 - ShellScript
@@ -10,13 +10,13 @@
 - Nginx
 - Postgressql
 
-Todos comando aqui ensinando a como rodar vão ser por terminal, mais precisamente do linux. Caso estiver utilizando windows, utilize o Git Bash ( Ou formata essa bomba de windows e coloca um linux ubuntu 22.04LTS que já é mil vezes melhor para mexer com docker, nginx e shellscript )
+Todos comando ensinando aqui vão ser por terminal, mais precisamente do linux. Caso estiver utilizando windows, utilize o Git Bash ( Ou formata essa bomba de windows e coloca um linux ubuntu 22.04LTS que já é mil vezes melhor para mexer com docker, nginx e shellscript )
 
 ## Subir por container docker:
 OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` em frente de todo comando relacionado a docker.
 
 - Subiir
-    ##
+    ###
         docker-compose -f docker-compose.prod.yml up -d --build
 
 <br />
