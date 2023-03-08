@@ -77,17 +77,26 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+# DB RDS DA AMAZON
+# DATABASES = {
+#     "default": {
+#         "ENGINE": str(os.getenv("SQL_ENGINE")),
+#         "NAME": str(os.getenv("SQL_DATABASE")),
+#         "USER": str(os.getenv("SQL_USER")),
+#         "PASSWORD": str(os.getenv("SQL_PASSWORD")),
+#         "HOST": str(os.getenv("SQL_HOST")),
+#         "PORT": str(os.getenv("SQL_PORT")),
+#     }
+# }
+
+# TESTES NA MÁQUINA
 DATABASES = {
     "default": {
-        "ENGINE": str(os.getenv("SQL_ENGINE")),
-        "NAME": str(os.getenv("SQL_DATABASE")),
-        "USER": str(os.getenv("SQL_USER")),
-        "PASSWORD": str(os.getenv("SQL_PASSWORD")),
-        "HOST": str(os.getenv("SQL_HOST")),
-        "PORT": str(os.getenv("SQL_PORT")),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3"
     }
 }
-
 
 
 # Password validation
