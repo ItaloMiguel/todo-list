@@ -2,7 +2,7 @@
 - Lembre de rodar esse comando para deixar o arquivo .sh executavel `chmod +x app/entrypoint.prod.sh`
 
 ## Subir por container docker:
-OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` na frente dos comandos que vou deixar.
+OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` em frente de todo comando relacionado a docker.
 
 - Subiir
     ##
