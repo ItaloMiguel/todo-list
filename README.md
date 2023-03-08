@@ -1,0 +1,1 @@
+# Projeto afins de estudos.
