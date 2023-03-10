@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'todousuarios/partials/_head.html' %}
+<body>
+    <!-- <a href="{% url 'home' %}">Ir para a Home</a> -->
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Logar</span>
+                <form action="#" class="">
+                    <div class="input-field">
+                        <input type="text" placeholder="Usuario" required/>
+                        <i class="uil uil-users-alt icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Senha" required/>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Lembre de mim</label>
+                        </div>
+                        <a href="#" class="text">Esqueceu a senha?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Logar-se" required/>
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">Não é membro?
+                        <a href="#" class="text sigunp-text">Cadastrar-se agora</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
