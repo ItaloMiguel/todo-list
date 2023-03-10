@@ -51,3 +51,6 @@ OBS: Tem um pg-admin subindo com o `docker-compose.prod.yml` mas não está func
 - Comando importantes
     ###
         python manage.py collectstatic --noinput
+- Para rodar o servidor e carregar os arquivos static com DEBUG = False
+    ###
+        python manage.py runserver --insecure
