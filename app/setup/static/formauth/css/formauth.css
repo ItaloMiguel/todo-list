@@ -89,6 +89,10 @@ body {
     font-size: 1.4rem;
 }
 
+.input-field .error-text {
+    background-color: red;
+}
+
 .input-field input:is(:focus, :valid) ~ i {
     color: var(--decoration-black-focus-color);
 }
@@ -156,4 +160,11 @@ body {
 .form .login-signup {
     margin-top: 1.8rem;
     text-align: center;
+}
+
+.messages .error-text{
+    margin-top: 10px;
+    color: rgb(255, 113, 113);
+    text-decoration: none;
+    list-style: none;
 }

@@ -15,14 +15,23 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <form action="{% url 'login_usuario' %}" method="post" name="dados" onSubmit="enviarDados()">
+                <form action="{% url 'cadastro_usuario' %}" method="post" name="dados" onSubmit="enviarDados()">
                     {% csrf_token %}
                     <div class="input-field">
                         <input name="username" type="text" placeholder="Usuario"/>
                         <i class="uil uil-users-alt icon"></i>
                     </div>
                     <div class="input-field">
+                        <input name="email" type="email" placeholder="Email"/>
+                        <i class="uil uil-envelope-alt"></i>
+                    </div>
+                    <div class="input-field">
                         <input name="password" type="password" placeholder="Senha" required/>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+                    <div class="input-field">
+                        <input name="confirm_password" type="password" placeholder="Confirma senha" required/>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
@@ -31,16 +40,16 @@
                             <input type="checkbox" id="logCheck">
                             <label for="logCheck" class="text">Lembre de mim</label>
                         </div>
-                        <a href="#" class="text">Esqueceu a senha?</a>
                     </div>
 
+                    
                     <div class="input-field button">
-                        <input type="submit" value="Logar-se" required/>
+                        <input type="submit" value="Cadastrar-se" required/>
                     </div>
                 </form>
                 <div class="login-signup">
-                    <span class="text">Não é membro?
-                        <a href="{% url 'cadastro_usuario' %}" class="text sigunp-text">Cadastrar-se agora</a>
+                    <span class="text">Já é membro?
+                        <a href="{% url 'login_usuario' %}" class="text sigunp-text">Logar-se agora</a>
                     </span>
                 </div>
             </div>
