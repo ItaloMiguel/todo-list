@@ -3,56 +3,57 @@
 <html lang="en">
 {% include 'todousuarios/partials/_head.html' %}
 <body>
-    <div class="container">
-        <div class="forms">
-            <div class="form login">
-                <span class="title">Logar</span>
-                {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}   
-                            <li class="error-text">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                <form action="{% url 'cadastro_usuario' %}" method="post" name="dados" onSubmit="enviarDados()">
-                    {% csrf_token %}
-                    <div class="input-field">
-                        <input name="username" type="text" placeholder="Usuario"/>
-                        <i class="uil uil-users-alt icon"></i>
-                    </div>
-                    <div class="input-field">
-                        <input name="email" type="email" placeholder="Email"/>
-                        <i class="uil uil-envelope-alt"></i>
-                    </div>
-                    <div class="input-field">
-                        <input name="password" class="password" type="password" placeholder="Senha" required/>
-                        <i class="uil uil-lock icon"></i>
-                    </div>
-                    <div class="input-field">
-                        <input name="confirm_password" class="password" type="password" placeholder="Confirma senha" required/>
-                        <i class="uil uil-lock icon"></i>
-                        <i class="uil uil-eye-slash showHidePw"></i>
-                    </div>
-                    <div class="checkbox-text">
-                        <div class="checkbox-content">
-                            <input type="checkbox" id="logCheck">
-                            <label for="logCheck" class="text">Lembre de mim</label>
-                        </div>
-                    </div>
+    <!-- HEADER -->
+    {% include 'todousuarios/partials/_header.html' %}
+    <main>
 
-                    
-                    <div class="input-field button">
-                        <input type="submit" value="Cadastrar-se" required/>
+        <div class="container">
+            <div class="forms">
+                <div class="form login">
+                    <span class="title">Cadastrar</span>
+                    {% include 'todousuarios/partials/_messages.html' %}
+                    <form action="{% url 'cadastro_usuario' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <input name="username" type="text" placeholder="Usuario" required/>
+                            <i class="uil uil-users-alt icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input name="email" type="email" placeholder="Email" required/>
+                            <i class="uil uil-envelope-alt icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input name="password" class="password" type="password" placeholder="Senha" required/>
+                            <i class="uil uil-lock icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input name="confirm_password" class="password" type="password" placeholder="Confirma senha" required/>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="logCheck">
+                                <label for="logCheck" class="text">Lembre de mim</label>
+                            </div>
+                        </div>
+    
+                        
+                        <div class="input-field button">
+                            <input type="submit" value="Cadastrar-se" required/>
+                        </div>
+                    </form>
+                    <div class="login-signup">
+                        <span class="text">Já é membro?
+                            <a href="{% url 'login_usuario' %}" class="text sigunp-text">Logar-se agora</a>
+                        </span>
                     </div>
-                </form>
-                <div class="login-signup">
-                    <span class="text">Já é membro?
-                        <a href="{% url 'login_usuario' %}" class="text sigunp-text">Logar-se agora</a>
-                    </span>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+    <!-- FOOTER -->
+    {% include 'todousuarios/partials/_footer.html' %}
 
     <script src="{% static 'formauth/js/formauth.js' %}"></script>
 </body>
