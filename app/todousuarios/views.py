@@ -19,7 +19,7 @@ def login_usuario(request):
             return redirect('home')
         else:
             messages.info(request, 'Username ou senha incorreta')
-            return redirect('login_users')
+            return redirect('login_usuario')
 
 
 def cadastro_usuario(request):
