@@ -1,7 +1,7 @@
 # Projeto afins de estudos.
 - Lembre de rodar esse comando para deixar o arquivo .sh executavel `chmod +x app/entrypoint.prod.sh`
 
-# Ferramentas utilizada
+## Ferramentas utilizada
 - Sistema operacional: Arch Linux
 - Dockerfile
 - Docker-compose
@@ -10,20 +10,28 @@
 - Nginx
 - Postgressql
 
-Todos comando ensinando aqui vão ser por terminal, mais precisamente do linux. Caso estiver utilizando windows, utilize o Git Bash ( Ou formata essa bomba de windows e coloca um linux ubuntu 22.04LTS que já é mil vezes melhor para mexer com docker, nginx e shellscript )
+Todos comando ensinando/utilizados aqui vão ser por terminal, mais precisamente do linux distro Arch. Caso estiver utilizando windows, utilize o Git Bash ( Ou formata essa bomba de windows e coloca um linux ubuntu 22.04LTS que já é mil vezes melhor para mexer com docker, nginx e shellscript ). Existe a opção de utilizar WSL 2 (recomendo bastante), [video](https://youtu.be/sjrW74Hx5Po?si=4dxIjNW7zQGszeNV) de como organizar seu ambiente de desenvolvimento.
 
 ## Subir por container docker:
 OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` em frente de todo comando relacionado a docker.
 
-- Subiir
+- Subir o docker de "produção":
     ###
         docker-compose -f docker-compose.prod.yml up -d --build
 
+- Subir o docker de "desenvolvimento":
+    ###
+        docker-compose -f docker-compose.yml up -d --build
+
 <br />
 
-- Decer o docker
+- Descer o docker de "produção":
     ###
         docker-compose -f docker-compose.prod.yml down -v
+
+- Descer o docker de "desenvolvimento":
+    ###
+        docker-compose -f docker-compose.yml down -v
 
 <br />
 
