@@ -1,7 +1,16 @@
 version: '3.8'
 
+volumes:
+  postgres_data:
+
+networks:
+  application:
+    driver: bridge
+
 services:
   web:
+    image: todo_list_dev_image
+    container_name: todo_list_dev_container
     build: ./app
     command: gunicorn setup.wsgi:application --bind 0.0.0.0:8000
     volumes:
@@ -12,14 +21,18 @@ services:
       - ./.env
     depends_on:
       - db
+    networks:
+      - application
 
   db:
     image: postgres:13.0-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: todolist
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./.env.prod.db
-      
-volumes:
-  postgres_data:
-
+    networks:
+      - application
+    ports:
+      - "5432:5432"

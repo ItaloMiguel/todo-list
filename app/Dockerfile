@@ -14,11 +14,11 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copiar o entrypoint
-COPY ./entrypoint.sh .
-RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.sh
-RUN chmod +x /usr/src/app/entrypoint.sh
+COPY ./entrypoint.dev.sh .
+RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.dev.sh
+RUN chmod +x /usr/src/app/entrypoint.dev.sh
 
 COPY . .
 
 # Rodar o entrypoint
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.dev.sh"]

@@ -5,7 +5,7 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile.prod
-    command: gunicorn setup.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn setup.wsgi:application --bind 0.0.0.0:8000 --timeout 200
     volumes:
       - static_volume:/home/app/web/static
     ports:
@@ -15,27 +15,40 @@ services:
     depends_on:
       - db
 
+  # db:
+  #   image: postgres:14.6-alpine
+  #   env_file:
+  #     - ./.env.prod.db
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - db-network
+
   db:
-    image: postgres:14.6-alpine
-    env_file:
-      - ./.env.prod.db
+    image: postgres:13.0-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: todolist
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - db-network
     ports:
       - "5432:5432"
-    networks:
-      - db-network
 
-  pg-admin:
-    image: dpage/pgadmin4
-    env_file:
-      - ./.env.prod.pg
-    ports:
-      - "16543:80"
-    depends_on:
-      - db
-    networks:
-      - db-network
+  # pg-admin:
+  #   image: dpage/pgadmin4
+  #   env_file:
+  #     - ./.env.prod.pg
+  #   ports:
+  #     - "16543:80"
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - db-network
 
   nginx:
     build: ./nginx

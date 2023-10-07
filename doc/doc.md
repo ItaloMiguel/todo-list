@@ -5,16 +5,16 @@ Leia com atenção para não se perder nos comandos. porque:
 ## Subir o projeto:
 Recomendo fortemente utilziar o [Makefile](https://www.gnu.org/software/make/manual/make.html), mas caso não consiga, pode utilizar normalmente os comando via docker-compose ensinado nos links logo abaixo.
 
-OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` à frente de todo comando relacionado a docker. Passo a Passo de como remover o `sudo`: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
+OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` à frente de todo comando relacionado a docker. Passo a Passo de como remover o sudo: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
  
 - #### [Comando subir como desenvolvedor](https://github.com/ItaloMiguel/todo-list/tree/master/doc/command_dev.md)
 
 - #### [Comando subir como produção](https://github.com/ItaloMiguel/todo-list/tree/master/doc/command_pord.md)
 
-## Antes de colocar arquivos statico em produção:
+## Antes de colocar arquivos statico em produção
 - Comando importantes:
     ###
         python manage.py collectstatic --noinput
-- Para rodar o servidor e carregar os arquivos static com `DEBUG = False`:
+- Para rodar o servidor e carregar os arquivos static com DEBUG = False:
     ###
         python manage.py runserver --insecure
