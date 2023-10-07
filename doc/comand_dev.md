@@ -55,3 +55,11 @@
         docker-compose -f docker-compose.yml exec web python manage.py startapp myapp
     ###
         docker-compose -f docker-compose.yml exec web python manage.py collectstatic --noinput
+
+## Como se conectar no banco de dados via terminal:
+- Comando de exemplo para desenvolvimento:
+    ###
+        docker-compose -f docker-compose.yml exec db psql --host=<exemplo: database-1.amazonaws.rds.***> --port=<porta do banco> --username=<username do banco> --password
+<br>
+
+- Nota que no comando `--password` não vai nada, certo? Isso é apenas uma questão de segurança do proprio banco, isso apenas indicar que você vai quere passa uma senha caso você fez um usuário com senha, se você não fez um usuário com senha apenas remova esse comando. Quando rodar perceba que vai ter embaixo `password:` ai nesse lugar você pode colocar o password.
