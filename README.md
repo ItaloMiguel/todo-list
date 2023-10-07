@@ -15,6 +15,9 @@ Todos comando ensinando/utilizados aqui vão ser por terminal, mais precisamente
 ## Subir por container docker:
 OBS: Se seu docker ainda estiver com `sudo` apenas adicione `sudo` em frente de todo comando relacionado a docker.
 
+### Docs do projeto
+Dentro da pasta '[/doc](https://github.com/ItaloMiguel/todo-list/tree/master/doc/doc.md)' você vai conseguir encontrar mais documentações para melhorar seu compreendimento do projeto. Estou tentando deixar o mais organizado possível e sempre atualizando.
+
 - Subir o docker de "produção":
     ###
         docker-compose -f docker-compose.prod.yml up -d --build
