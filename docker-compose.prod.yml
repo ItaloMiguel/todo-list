@@ -13,42 +13,46 @@ services:
     env_file:
       - ./.env
     depends_on:
-      - db
+      - postgres
 
-  # db:
+  # postgres:
   #   image: postgres:14.6-alpine
   #   env_file:
-  #     - ./.env.prod.db
+  #     - ./.env.prod.postgres
   #   volumes:
   #     - postgres_data:/var/lib/postgresql/data/
   #   ports:
   #     - "5432:5432"
   #   networks:
-  #     - db-network
+  #     - postgres-network
 
-  db:
+  postgres:
     image: postgres:13.0-alpine
+    container_name: postgresql_container
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: todolist
+      POSTGRES_postgres: todolist
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:
-      - db-network
+      - postgres-network
     ports:
       - "5432:5432"
 
-  # pg-admin:
-  #   image: dpage/pgadmin4
-  #   env_file:
-  #     - ./.env.prod.pg
-  #   ports:
-  #     - "16543:80"
-  #   depends_on:
-  #     - db
-  #   networks:
-  #     - db-network
+  pg-admin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: pgadmin4_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-network
 
   nginx:
     build: ./nginx
@@ -64,6 +68,6 @@ volumes:
   static_volume:
 
 networks:
-  db-network:
+  postgres-network:
     driver: bridge
 
