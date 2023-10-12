@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* MODE LIGHT */
+    --background-light-gray-color: rgb(240, 240, 240);
+    --background-light-bit-gray-color: rgb(230, 230, 230);
+    --background-white-color: rgba(255, 255, 255);
+    --decoration-gray-color: #999;
+    --decoration-dark-gray-color: rgb(88, 87, 87);
+    --decoration-black-focus-color: rgb(47, 47, 47);
+    --shadow-box-black-color: rgba(0, 0, 0, 0.2);
+    --border-bottom-light-gray-color: #ccc;
+    --color-icon-light-gray-color: #999;
+    --text-dark-color: #333;
+    --text-contrast-blue-color: #4070f4;
+
+}
+ /* HEADER */
+header {
+    height: 5vh;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: var(--background-light-gray-color);
+    box-shadow: 2px 5px 10px var(--shadow-box-black-color);
+}
+
+header li, a, button {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-dark-color);
+    text-decoration: none;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: black;
+}
+
+
+/* MAIN CONTENT */
+
+main {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-white-color);
+}
+
+.container {
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background-color: var(--background-light-gray-color);
+    border-radius: 10px;
+    box-shadow: 2px 5px 10px var(--shadow-box-black-color);
+}
+
+.container .form {
+    padding: 30px;
+}
+
+.container .form .title {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.form .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 1.9rem;
+    background-color: var(--decoration-gray-color);
+    border-radius: 25px;
+}
+
+.form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-field input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--border-bottom-light-gray-color);
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    border-bottom-color: var(--decoration-black-focus-color);
+}
+
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-icon-light-gray-color);
+    font-size: 1.4rem;
+}
+
+.input-field input:is(:focus, :valid) ~ i {
+    color: var(--decoration-black-focus-color);
+}
+
+.input-field i.icon {
+    left: 0;
+}
+
+.input-field i.showHidePw {
+    right: 0;
+}
+
+.form .checkbox-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input {
+    margin: 0 8px -2px 4px;
+    accent-color: var(--decoration-gray-color);
+}
+
+.form .text {
+    color: var(--text-dark-color);
+    font-size: .9rem;
+
+}
+
+.form a.text {
+    color: var(--text-contrast-blue-color);
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.form .button {
+    margin-top: 2.2rem;
+}
+
+.form .button input {
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: var(--decoration-gray-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button input:hover {
+    background-color: var(--decoration-dark-gray-color);
+}
+
+.form .login-signup {
+    margin-top: 1.8rem;
+    text-align: center;
+}
+
+.messages .error-text{
+    margin-top: 10px;
+    color: rgb(255, 113, 113);
+    text-decoration: none;
+    list-style: none;
+}
+
+/* FOOTER */
+footer {
+    height: 10vh;
+    background-color: var(--background-light-gray-color);
+    box-shadow: 2px -5px 10px var(--shadow-box-black-color);
+}

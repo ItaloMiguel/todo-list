@@ -9,3 +9,13 @@ run-prod: build-prod
 
 stop-prod:
 	@bash utils/command-prod.sh STOP
+
+chmod-execute:
+	@bash chmod u+x app/*.sh
+	@bash chmod u+x utils/*.sh
+
+migrete:
+	@bash utils/migrate.sh
+
+collectstatic:
+	@bash utils/collectstatic.sh
