@@ -1,21 +1,46 @@
-build-prod:
-	@bash utils/command-prod.sh BUILD
+COMMAND_BUILD=utils/command-prod.sh BUILD
+COMMAND_PSQL=utils/psql-prod.sh
+COMMAND_RUN=utils/command-prod.sh RUN
+COMMAND_STOP=utils/command-prod.sh STOP
 
-psql-prod:
-	@bash utils/psql-prod.sh
+DJANGO_MIGRATE=utils/migrate.sh
+DJANGO_COLLECTSTATIC=utils/collectstatic.sh
 
-run-prod: build-prod
-	@bash utils/command-prod.sh RUN
+build:
+	@bash $(COMMAND_BUILD)
 
-stop-prod:
-	@bash utils/command-prod.sh STOP
+psql:
+	@bash $(COMMAND_PSQL)
 
-chmod-execute:
+start: $(COMMAND_BUILD)
+	@bash $(COMMAND_RUN)
+
+stop:
+	@bash $(COMMAND_STOP)
+
+restart: 
+	@bash $(COMMAND_STOP)
+	@bash $(COMMAND_RUN)
+
+# Comandos de terminal
+
+chmod:
 	@bash chmod u+x app/*.sh
 	@bash chmod u+x utils/*.sh
 
-migrete:
-	@bash utils/migrate.sh
+clean-docker:
+	@bash docker volume prune -f
+	@bash docker network prune -f
+	@bash docker container prune -f
+	@bash docker image prune -f
 
-collectstatic:
-	@bash utils/collectstatic.sh
+# Comandos do django
+
+django_migrate:
+	@bash $(DJANGO_MIGRATE)
+
+django_collectstatic:
+	@bash $(DJANGO_COLLECTSTATIC)
+
+
+
