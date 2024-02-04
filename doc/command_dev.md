@@ -1,7 +1,3 @@
-- Subir o docker de "desenvolvimento":
-    ###
-        docker-compose -f docker-compose.yml up -d --build
-
 # Desenvolvimento
 
 ## Com Makefile:
@@ -9,7 +5,7 @@
 
 - Buildar o docker-compose de desenvolvimento:
     ###
-        make dev-prod
+        make build-dev
 
 <br />
 

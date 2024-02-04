@@ -12,7 +12,7 @@ build:
 psql:
 	@bash $(COMMAND_PSQL)
 
-start: $(COMMAND_BUILD)
+start: build
 	@bash $(COMMAND_RUN)
 
 stop:
@@ -24,9 +24,8 @@ restart:
 
 # Comandos de terminal
 
-chmod:
-	@bash chmod u+x app/*.sh
-	@bash chmod u+x utils/*.sh
+command-chmod:
+	chmod u+x utils/*.sh
 
 clean-docker:
 	@bash docker volume prune -f
