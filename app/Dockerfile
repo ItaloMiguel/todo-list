@@ -11,7 +11,7 @@ RUN apk update \
 # Instalar dependencias
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar o entrypoint
 COPY ./entrypoint.dev.sh .
@@ -21,4 +21,4 @@ RUN chmod +x /usr/src/app/entrypoint.dev.sh
 COPY . .
 
 # Rodar o entrypoint
-ENTRYPOINT ["/usr/src/app/entrypoint.dev.sh"]
+# ENTRYPOINT ["/home/app/web/entrypoint.dev.sh"]

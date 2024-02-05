@@ -1,38 +1,37 @@
 version: '3.8'
 
-volumes:
-  postgres_data:
-
-networks:
-  application:
-    driver: bridge
-
 services:
   web:
-    image: todo_list_dev_image
-    container_name: todo_list_dev_container
     build: ./app
     command: gunicorn setup.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/
     expose:
       - 8000
-    env_file:
-      - ./.env
-    depends_on:
-      - db
+    ports:
+      - "8000:8000"
     networks:
       - application
 
-  # db:
-  #   image: postgres:13.0-alpine
-  #   restart: unless-stopped
-  #   environment:
-  #     POSTGRES_PASSWORD: root
-  #     POSTGRES_DB: todolist
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data/
-  #   networks:
-  #     - application
-  #   ports:
-  #     - "5432:5432"
+  nginx:
+    build: ./scripts/dockerfiles/nginx
+    volumes:
+      - static_volume_dev:/home/app/web/staticfiles
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    command: ["nginx", "-g", "daemon off;"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://web:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  postgres_data:
+  static_volume_dev:
+
+networks:
+  application:
+    driver: bridge
