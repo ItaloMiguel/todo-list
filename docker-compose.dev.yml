@@ -24,15 +24,15 @@ services:
     networks:
       - application
 
-  db:
-    image: postgres:13.0-alpine
-    restart: unless-stopped
-    environment:
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: todolist
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    networks:
-      - application
-    ports:
-      - "5432:5432"
+  # db:
+  #   image: postgres:13.0-alpine
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_PASSWORD: root
+  #     POSTGRES_DB: todolist
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+  #   networks:
+  #     - application
+  #   ports:
+  #     - "5432:5432"

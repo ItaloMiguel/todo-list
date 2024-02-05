@@ -1,10 +1,10 @@
-COMMAND_BUILD=utils/command-prod.sh BUILD
-COMMAND_PSQL=utils/psql-prod.sh
-COMMAND_RUN=utils/command-prod.sh RUN
-COMMAND_STOP=utils/command-prod.sh STOP
+COMMAND_BUILD=scripts/shell/command-prod.sh BUILD
+COMMAND_PSQL=scripts/shell/psql-prod.sh
+COMMAND_RUN=scripts/shell/command-prod.sh RUN
+COMMAND_STOP=scripts/shell/command-prod.sh STOP
 
-DJANGO_MIGRATE=utils/migrate.sh
-DJANGO_COLLECTSTATIC=utils/collectstatic.sh
+DJANGO_MIGRATE=scripts/shell/migrate.sh
+DJANGO_COLLECTSTATIC=scripts/shell/collectstatic.sh
 
 build:
 	@bash $(COMMAND_BUILD)
@@ -25,7 +25,7 @@ restart:
 # Comandos de terminal
 
 command-chmod:
-	chmod u+x utils/*.sh
+	chmod u+x scripts/shell/*.sh
 
 clean-docker:
 	@bash docker volume prune -f
