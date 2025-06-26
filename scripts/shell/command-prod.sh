@@ -4,7 +4,7 @@
 
 BUILDING() {
     echo -e "Building production docker"
-    docker-compose -f docker-compose.prod.yml build
+    docker compose -f docker-compose.prod.yml build
     if [ $? -eq 0 ] ; then
         echo -e "\e[32mCommand was executed successfully...\e[37m"
     else
@@ -14,7 +14,7 @@ BUILDING() {
 
 RUNING() {
     echo -e "Runing production docker"
-    docker-compose -f docker-compose.prod.yml up -d
+    docker compose -f docker-compose.prod.yml up -d
     if [ $? -eq 0 ] ; then
         echo -e "\e[32mCommand was executed successfully...\e[37m"
     else
@@ -24,7 +24,7 @@ RUNING() {
 
 STOP() {
     echo -e "Stop containers"
-    docker-compose -f docker-compose.prod.yml down -v
+    docker compose -f docker-compose.prod.yml down -v
     if [ $? -eq 0 ] ; then
         echo -e "\e[32mCommand was executed successfully...\e[37m"
     else
