@@ -21,4 +21,4 @@ RUN chmod +x /usr/src/app/entrypoint.dev.sh
 COPY . .
 
 # Rodar o entrypoint
-# ENTRYPOINT ["/home/app/web/entrypoint.dev.sh"]
+ENTRYPOINT ["/home/app/web/entrypoint.dev.sh"]
